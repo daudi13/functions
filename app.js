@@ -26,40 +26,32 @@ based on the input number, update the 'answers' array property. for example. if 
 
 
 poll.registerNewAnswer = function () {
-    const ans = prompt(`
-    What is your favourite programming language?
-    0: JavaScript
-    1: Python
-    2: Rust
-    3: C++
-    (Write option number)`)
 
-    if (ans > 3 || ans < 0) {
-        alert(`enter a number between 0 and 3`)
-    } else {
-        this.answers[ans]++
-    }
-}
+    //GET THE ANSWER
+    const ans = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(Write option number)`));
 
-poll.displayResults = function (type) {
+    //register
     
-    const [a, b, c, d] = poll.answers
+    typeof ans === 'number' && ans < this.answers.length && this.answers[ans]++;
 
-    if (type === 'string') {
-        console.log(a, b, c, d)
-    } else if (type === 'array') {
-        console.log(`Poll result are ${a}, ${b}, ${c}, ${d}`)
+    this.displayResult();
+    this.displayResult('string');
+    
+}
+
+poll.displayResult = function (type = 'array') {
+
+    if (type === 'array') {
+        console.log(this.answers)
+    } else if (type === 'string') {
+        console.log(`Poll results are ${this.answers.join(', ')}`)
     }
 }
 
+document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll))
 
 
-// poll.registerNewAnswer();
 
-const pollFunc = poll.registerNewAnswer.bind(poll);
-const pollBtn = document.querySelector('.poll')
+// const arr = [1, 2, 3, 4];
 
-
-pollBtn.addEventListener('click', pollFunc);
-poll.displayResults('array')
-
+// console.log(arr.join(', '))
