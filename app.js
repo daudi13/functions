@@ -41,4 +41,13 @@ Display a prompt window for the user to input the number of the selected option.
 based on the input number, update the 'answers' array property. for example. if the option is 3, increase the value at position 3 of the array by 1. make sure to check if the input is a number and
 
 
+call this method whenever the user clicks the "Answe poll" button
+
+create a method 'displayResult' which displays the poll results. the method takes a string as an input (called 'type), which can be either 'string' or array simply display the results array as it is 'string', display a string like "Poll result are 12,2, 4, 1"
+
+run the 'displayResults' methid at the end if each 'registerNewAnswer' method call.
+
+Bonas: use the 'displayResults' methpod to display the 2 arrays in the test data. use both the 'array' and the string option. Do not put the arrays in the poll object! so what should the this keyword look like in this situation?
 */
+
+poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
