@@ -51,3 +51,19 @@ Bonas: use the 'displayResults' methpod to display the 2 arrays in the test data
 */
 
 poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+
+//coding challenge #2
+
+/* take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element('header)to blue each time the body element is clicked. do not select the h1 element again */
+
+
+(function () {
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+    document.querySelector('body').addEventListener('click', function () {
+        header.style.color = 'blue';
+    })
+})();
+
+
