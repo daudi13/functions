@@ -61,9 +61,10 @@ poll.displayResult.call({ answers: [1, 5, 3, 9, 6, 1] });
 (function () {
     const header = document.querySelector('h1');
     header.style.color = 'red';
+
     document.querySelector('body').addEventListener('click', function () {
         header.style.color = 'blue';
     })
-})();
+})()
 
 
